@@ -13,6 +13,16 @@ import TiltedCard from '../ui/TiltedCard';
 import { personalInfo } from '../../data/siteData';
 import { riseIn, staggerParent } from '../../utils/motion';
 import usePrefersReducedMotion from '../../hooks/usePrefersReducedMotion';
+
+/**
+ * ─── REPLACE YOUR PHOTO ─────────────────────────────────────────────────────
+ * To use your own photo, change HERO_IMAGE_SRC to:
+ *   • A local file:  import myPhoto from '../../assets/profile.jpg';  → use myPhoto
+ *   • A URL string:  'https://yourcdn.com/photo.jpg'
+ *
+ * Recommended image: square crop, min 600×600 px.
+ * ────────────────────────────────────────────────────────────────────────────
+ */
 import myPhoto from '../../assets/profile.jpg';
 const HERO_IMAGE_SRC = myPhoto;
 
