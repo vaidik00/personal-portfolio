@@ -1,76 +1,63 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import gsap from 'gsap';
-import { personalInfo } from '../../data/siteData';
+import SplitText from './SplitText';
 
 export default function Preloader({ onComplete }) {
   const containerRef = useRef(null);
-  const [progress, setProgress] = useState(0);
+  const [firstDone, setFirstDone] = useState(false);
+  const [secondDone, setSecondDone] = useState(false);
 
   useEffect(() => {
     document.body.style.overflow = 'hidden';
-
-    const progressState = { value: 0 };
-    const timeline = gsap.timeline({
-      defaults: { ease: 'power3.out' },
-      onComplete: () => {
-        document.body.style.overflow = '';
-        onComplete();
-      },
-    });
-
-    timeline.to(progressState, {
-      value: 100,
-      duration: 2.1,
-      ease: 'power2.out',
-      onUpdate: () => setProgress(Math.round(progressState.value)),
-    });
-
-    timeline.to(
-      '.preloader-word',
-      {
-        y: 0,
-        opacity: 1,
-        stagger: 0.08,
-        duration: 0.55,
-      },
-      0.12,
-    );
-
-    timeline.to(
-      containerRef.current,
-      {
-        yPercent: -100,
-        duration: 1.05,
-        ease: 'power4.inOut',
-      },
-      '>-0.08',
-    );
-
     return () => {
       document.body.style.overflow = '';
-      timeline.kill();
     };
-  }, [onComplete]);
+  }, []);
+
+  useEffect(() => {
+    if (firstDone && secondDone) {
+      setTimeout(() => {
+        gsap.to(containerRef.current, {
+          yPercent: -100,
+          duration: 1.05,
+          ease: 'power4.inOut',
+          onComplete: () => {
+            if (onComplete) onComplete();
+          }
+        });
+      }, 600); // Small pause before exit animation starts
+    }
+  }, [firstDone, secondDone, onComplete]);
 
   return (
-    <div ref={containerRef} className="preloader-wrap">
-      <div className="preloader-grid" aria-hidden="true" />
-      <div className="preloader-glow" aria-hidden="true" />
-
-      <div className="preloader-copy">
-        <p className="preloader-label">
-          {personalInfo.name}
-        </p>
-        <p className="preloader-count">{String(progress).padStart(2, '0')}</p>
-        <div className="preloader-phrase">
-          {['Curating', 'Motion', 'And', 'Storytelling'].map((word) => (
-            <span key={word} className="preloader-word">
-              {word}
-            </span>
-          ))}
-        </div>
+    <div
+      ref={containerRef}
+      className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-[#f4f2ee] text-[#151823] dark:bg-[#090b12] dark:text-[#f1f3ff]"
+    >
+      <div className="flex flex-col items-center justify-center space-y-2 sm:space-y-4">
+        <SplitText
+          text="There Is A New Dev In Town!!"
+          className="text-3xl sm:text-5xl font-semibold text-center"
+          delay={40}
+          duration={0.8}
+          ease="power3.out"
+          splitType="chars"
+          from={{ opacity: 0, y: 40 }}
+          to={{ opacity: 1, y: 0 }}
+          onLetterAnimationComplete={() => setFirstDone(true)}
+        />
+        <SplitText
+          text="Meet Vaidik"
+          className="text-4xl sm:text-6xl font-bold text-center"
+          delay={50}
+          duration={0.8}
+          ease="power3.out"
+          splitType="chars"
+          from={{ opacity: 0, y: 40 }}
+          to={{ opacity: 1, y: 0 }}
+          onLetterAnimationComplete={() => setSecondDone(true)}
+        />
       </div>
-      <div className="preloader-progress" style={{ width: `${progress}%` }} />
     </div>
   );
 }

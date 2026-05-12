@@ -13,17 +13,7 @@ import TiltedCard from '../ui/TiltedCard';
 import { personalInfo } from '../../data/siteData';
 import { riseIn, staggerParent } from '../../utils/motion';
 import usePrefersReducedMotion from '../../hooks/usePrefersReducedMotion';
-
-/**
- * ─── REPLACE YOUR PHOTO ─────────────────────────────────────────────────────
- * To use your own photo, change HERO_IMAGE_SRC to:
- *   • A local file:  import myPhoto from '../../assets/profile.jpg';  → use myPhoto
- *   • A URL string:  'https://yourcdn.com/photo.jpg'
- *
- * Recommended image: square crop, min 600×600 px.
- * ────────────────────────────────────────────────────────────────────────────
- */
-import myPhoto from '../../assets/profile.jpg';
+import myPhoto from '../../assets/image1.png';
 const HERO_IMAGE_SRC = myPhoto;
 
 function SocialGlyph({ iconKey }) {
@@ -152,13 +142,13 @@ export default function HeroSection({ onNavigate }) {
           </motion.div>
         </motion.div>
 
-        {/* RIGHT — TiltedCard (desktop only) */}
+        {/* RIGHT — TiltedCard */}
         <motion.div
           initial={{ opacity: 0, x: 40, rotateY: -12 }}
           whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
-          className="hidden lg:flex items-center justify-center"
+          className="flex items-center justify-center order-first lg:order-last"
           style={{ perspective: 1000 }}
         >
           <TiltedCard

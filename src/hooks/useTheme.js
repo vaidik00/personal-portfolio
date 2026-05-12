@@ -11,7 +11,7 @@ function getInitialTheme() {
   if (savedTheme === 'dark' || savedTheme === 'light') {
     return savedTheme;
   }
-  return getSystemTheme();
+  return 'dark'; // default to dark
 }
 
 export default function useTheme() {

@@ -5,7 +5,7 @@ import useTheme from './hooks/useTheme';
 import useLenisScroll from './hooks/useLenisScroll';
 import usePrefersReducedMotion from './hooks/usePrefersReducedMotion';
 import Preloader from './components/ui/Preloader';
-import CustomCursor from './components/ui/CustomCursor';
+import { SmoothCursor } from './components/ui/SmoothCursor';
 import ParticlesCanvas from './components/ui/ParticlesCanvas';
 import ScrollProgress from './components/ui/ScrollProgress';
 import Navbar from './components/layout/Navbar';
@@ -78,7 +78,9 @@ export default function App() {
         Skip to content
       </a>
 
-      {!prefersReducedMotion && <CustomCursor />}
+      {!prefersReducedMotion && (
+        <SmoothCursor />
+      )}
       <ParticlesCanvas isDark={isDark} reducedMotion={prefersReducedMotion} />
       <ScrollProgress />
 
