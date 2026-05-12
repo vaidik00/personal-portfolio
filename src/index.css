@@ -343,8 +343,8 @@
     @apply pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-sm text-black/45 transition-all dark:text-white/45;
   }
 
-  .floating-input:focus + .floating-label,
-  .floating-input:not(:placeholder-shown) + .floating-label {
+  .floating-input:focus+.floating-label,
+  .floating-input:not(:placeholder-shown)+.floating-label {
     @apply top-3 translate-y-0 text-[10px] uppercase tracking-[0.2em] text-black/45 dark:text-white/45;
   }
 
@@ -352,7 +352,7 @@
     @apply min-h-32 resize-none;
   }
 
-  textarea.floating-input + .floating-label {
+  textarea.floating-input+.floating-label {
     @apply top-6;
   }
 
@@ -447,6 +447,7 @@
     from {
       transform: translateX(0);
     }
+
     to {
       transform: translateX(-50%);
     }
@@ -455,7 +456,14 @@
 
 /* Hide default cursor on desktop devices to show ONLY SmoothCursor */
 @media (pointer: fine) {
-  *, *::before, *::after, a, button, input, textarea {
+
+  *,
+  *::before,
+  *::after,
+  a,
+  button,
+  input,
+  textarea {
     cursor: none !important;
   }
 }

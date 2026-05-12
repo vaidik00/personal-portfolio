@@ -36,7 +36,7 @@ export default function Preloader({ onComplete }) {
     >
       <div className="flex flex-col items-center justify-center space-y-2 sm:space-y-4">
         <SplitText
-          text="There Is A New Dev In Town!!"
+          text="There's A New Dev In Town!!"
           className="text-3xl sm:text-5xl font-semibold text-center"
           delay={40}
           duration={0.8}

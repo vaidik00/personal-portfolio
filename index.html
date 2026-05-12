@@ -1,60 +1,52 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Vaidik Patel - B.Tech IT student at KJSIT Mumbai crafting modern, user-centered web experiences with React, Tailwind, GSAP, and Framer Motion."
-    />
-    <meta
-      name="keywords"
-      content="Vaidik Patel, developer portfolio, frontend engineer, React.js, Tailwind CSS, KJSIT Mumbai"
-    />
-    <meta name="author" content="Vaidik Patel" />
-    <meta property="og:title" content="Vaidik Patel | Building Modern Web Experiences" />
-    <meta
-      property="og:description"
-      content="Luxury-style animated developer portfolio of Vaidik Patel, B.Tech IT student at KJSIT Mumbai."
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="/favicon.svg" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Vaidik Patel | Developer Portfolio" />
-    <meta
-      name="twitter:description"
-      content="Cinematic React portfolio with smooth animations, GSAP interactions, and premium dark-light design."
-    />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-    <script>
-      (() => {
-        try {
-          const savedTheme = localStorage.getItem('vp-theme');
-          const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-          const theme = savedTheme || (prefersDark ? 'dark' : 'light');
-          document.documentElement.classList.toggle('dark', theme === 'dark');
-          document.documentElement.style.colorScheme = theme;
-        } catch {
-          document.documentElement.classList.add('dark');
-        }
-      })();
-    </script>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Vaidik Patel - B.Tech IT student at KJSIT Mumbai crafting modern, user-centered web experiences with React, Tailwind, GSAP, and Framer Motion." />
+  <meta name="keywords"
+    content="Vaidik Patel, developer portfolio, frontend engineer, React.js, Tailwind CSS, KJSIT Mumbai" />
+  <meta name="author" content="Vaidik Patel" />
+  <meta property="og:title" content="Vaidik Patel | Building Modern Web Experiences" />
+  <meta property="og:description"
+    content="Luxury-style animated developer portfolio of Vaidik Patel, B.Tech IT student at KJSIT Mumbai." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/logo.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Vaidik Patel | Developer Portfolio" />
+  <meta name="twitter:description"
+    content="Cinematic React portfolio with smooth animations, GSAP interactions, and premium dark-light design." />
+  <link rel="icon" type="image/jpeg" href="/logo.jpg" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=satoshi@400,500,700&display=swap"
-      rel="stylesheet"
-    />
-    <title>Vaidik Patel | Luxury Developer Portfolio</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+  <script>
+    (() => {
+      try {
+        const savedTheme = localStorage.getItem('vp-theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const theme = savedTheme || (prefersDark ? 'dark' : 'light');
+        document.documentElement.classList.toggle('dark', theme === 'dark');
+        document.documentElement.style.colorScheme = theme;
+      } catch {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=satoshi@400,500,700&display=swap"
+    rel="stylesheet" />
+  <title>Vaidik Patel | Luxury Developer Portfolio</title>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+
 </html>

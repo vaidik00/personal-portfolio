@@ -153,8 +153,8 @@ export default function HeroSection({ onNavigate }) {
         >
           <TiltedCard
             imageSrc={HERO_IMAGE_SRC}
-            altText={`${personalInfo.name} — Frontend Developer`}
-            captionText={`${personalInfo.name} · Frontend Dev`}
+            altText={`${personalInfo.name} — Freelancer & Student`}
+            captionText={`${personalInfo.name} · Freelancer & Student`}
             containerHeight="360px"
             containerWidth="300px"
             imageHeight="320px"
@@ -197,7 +197,7 @@ export default function HeroSection({ onNavigate }) {
                     textTransform: 'uppercase',
                   }}
                 >
-                  Frontend Developer
+                  Freelancer & Student
                 </span>
               </div>
             }
