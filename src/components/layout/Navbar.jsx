@@ -90,7 +90,7 @@ export default function Navbar({ isDark, onToggleTheme, onNavigate }) {
               onToggleTheme={onToggleTheme}
               aria-label="Toggle theme"
               data-cursor="interactive"
-              variant="circle"
+              variant="diamond"
             />
 
             <button
