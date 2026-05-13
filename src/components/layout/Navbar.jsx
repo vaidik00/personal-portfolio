@@ -10,6 +10,7 @@ import {
   FiX,
 } from 'react-icons/fi';
 import { navigationLinks, personalInfo } from '../../data/siteData';
+import { AnimatedThemeToggler } from '../ui/animated-theme-toggler';
 
 function SocialIcon({ name }) {
   if (name === 'github') return <FiGithub />;
@@ -83,15 +84,14 @@ export default function Navbar({ isDark, onToggleTheme, onNavigate }) {
               ))}
             </div>
 
-            <button
-              type="button"
+            <AnimatedThemeToggler
               className="theme-toggle"
-              onClick={onToggleTheme}
+              isDark={isDark}
+              onToggleTheme={onToggleTheme}
               aria-label="Toggle theme"
               data-cursor="interactive"
-            >
-              {isDark ? <FiSun /> : <FiMoon />}
-            </button>
+              variant="circle"
+            />
 
             <button
               type="button"

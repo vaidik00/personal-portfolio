@@ -17,9 +17,8 @@ export const personalInfo = {
   degree: 'B.Tech - Information Technology',
   availability: 'Open to internships and frontend collaborations',
   bioShort:
-    'I design and build polished digital products with a strong focus on usability, motion, and frontend performance.',
-  bioLong:
-    'I am a B.Tech IT student at KJSIT Mumbai, passionate about user-centered web experiences. I am a fast learner, an active listener, and I enjoy experimenting with modern technologies to create meaningful and delightful products.',
+    'AI-focused Information Technology student at KJ Somaiya Institute of Technology.',
+
   socialLinks: [
     { label: 'GitHub', href: 'https://github.com/vaidik00', key: 'github' },
     { label: 'LinkedIn', href: 'https://linkedin.com/in/vaidikpatel', key: 'linkedin' },
@@ -52,37 +51,54 @@ export const skillGroups = [
     title: 'Frontend',
     accent: 'var(--color-electric)',
     items: [
-      { name: 'HTML5',         iconKey: 'html5' },
-      { name: 'CSS3',          iconKey: 'css3' },
-      { name: 'JavaScript',    iconKey: 'javascript' },
-      { name: 'React.js',      iconKey: 'react' },
-      { name: 'Tailwind CSS',  iconKey: 'tailwind' },
+      { name: 'React', iconKey: 'react' },
+      { name: 'Next.js', iconKey: 'nextjs' },
+      { name: 'TypeScript', iconKey: 'typescript' },
+      { name: 'JavaScript', iconKey: 'javascript' },
+      { name: 'Tailwind CSS', iconKey: 'tailwind' },
       { name: 'Framer Motion', iconKey: 'framer' },
-      { name: 'GSAP',          iconKey: 'gsap' },
     ],
   },
   {
     title: 'Backend',
     accent: 'var(--color-soft-blue)',
     items: [
-      { name: 'Node.js',    iconKey: 'nodejs' },
-      { name: 'PHP',        iconKey: 'php' },
-      { name: 'MySQL',      iconKey: 'mysql' },
-      { name: 'PostgreSQL', iconKey: 'postgresql' },
-      { name: 'Supabase',   iconKey: 'supabase' },
+      { name: 'FastAPI', iconKey: 'fastapi' },
+      { name: 'Node.js', iconKey: 'nodejs' },
+      { name: 'REST APIs', iconKey: 'api' },
     ],
   },
   {
-    title: 'Tools & Other',
+    title: 'AI / ML',
     accent: 'var(--color-neon)',
     items: [
-      { name: 'Python',  iconKey: 'python' },
-      { name: 'C',       iconKey: 'c' },
-      { name: 'C++',     iconKey: 'cplusplus' },
-      { name: 'Vercel',  iconKey: 'vercel' },
-      { name: 'Netlify', iconKey: 'netlify' },
-      { name: 'Railway', iconKey: 'railway' },
-      { name: 'Git',     iconKey: 'git' },
+      { name: 'Scikit-Learn', iconKey: 'scikit' },
+      { name: 'Pandas', iconKey: 'pandas' },
+      { name: 'NumPy', iconKey: 'numpy' },
+      { name: 'spaCy', iconKey: 'spacy' },
+      { name: 'NLP', iconKey: 'nlp' },
+      { name: 'Sentence Transformers', iconKey: 'huggingface' },
+    ],
+  },
+  {
+    title: 'Databases',
+    accent: 'var(--color-electric)',
+    items: [
+      { name: 'PostgreSQL', iconKey: 'postgresql' },
+      { name: 'SQLite', iconKey: 'sqlite' },
+      { name: 'Prisma', iconKey: 'prisma' },
+      { name: 'Supabase', iconKey: 'supabase' },
+    ],
+  },
+  {
+    title: 'Dev Tools & Platforms',
+    accent: 'var(--color-soft-blue)',
+    items: [
+      { name: 'Git', iconKey: 'git' },
+      { name: 'Docker', iconKey: 'docker' },
+      { name: 'GitHub', iconKey: 'github' },
+      { name: 'Vercel', iconKey: 'vercel' },
+      { name: 'Postman', iconKey: 'postman' },
     ],
   },
 ];
@@ -124,52 +140,72 @@ export const projects = [
 ];
 
 export const journeyTimeline = [
+    {
+      year: 'Sep 2022 – May 2025',
+      title: 'Diploma in Computer Engineering',
+      detail:
+        'St. John College of Engineering and Management, Palghar, Maharashtra | Graduated with First Class Distinction, securing 89.09%. Built a strong foundation in software development, problem-solving, and emerging technologies while actively participating in technical competitions, research presentations, and hackathons.',
+    },
+    {
+      year: 'Jun 2024 – Jul 2024',
+      title: 'Android Development Intern — Accunity Services LLP',
+      detail:
+        'Worked remotely as an Android Development Intern, building scalable mobile applications using Kotlin. Implemented REST API integrations, local data storage, UI/UX improvements, debugging, and state management to deliver responsive and production-ready applications.',
+    },
+    {
+      year: '20 Feb 2025',
+      title: 'State-Level Paper Presentation Champion',
+      detail:
+        'Won first place at Bhausaheb Vartak Polytechnic College for presenting an IEEE-format research paper on the “Pros, Cons, and Future of AI & Large Language Models (LLMs).” The presentation focused on the real-world impact, opportunities, and ethical challenges of modern AI systems.',
+    },
+    {
+      year: '21 Mar 2025',
+      title: 'Winner — Presentania 2025',
+      detail:
+        'Secured another state-level victory at “Presentania” hosted by St. John College of Engineering and Management using the same IEEE research paper on AI and LLMs. Recognized for technical depth, presentation clarity, and innovative insights into the future of artificial intelligence.',
+    },
+    {
+      year: 'Aug 2025 – Present',
+      title: 'B.Tech in Information Technology',
+      detail:
+        'KJ Somaiya Institute of Technology, Mumbai, Maharashtra | Currently pursuing a Bachelor’s degree in Information Technology with a strong focus on AI-powered applications, full-stack development, and intelligent systems engineering.',
+    },
+    {
+      year: '28 Mar 2026',
+      title: 'Top 8 Finalist — Build-It ON Hackathon',
+      detail:
+        'Participated in “Build-It ON: AI for Social Impact & Sustainability” hosted by Thakur College of Engineering and Technology (TCET). Worked on solving the problem of gas shortages during crisis situations through an AI-driven smart distribution system. Out of 200+ participating teams, only 21 teams were shortlisted, and our team secured a Top 8 finalist position.',
+    },
+];
+
+export const achievementsBoard = [
   {
-    year: '2022',
-    title: 'Started B.Tech IT at KJSIT Mumbai',
-    detail: 'Began my engineering journey and built strong programming fundamentals through consistent practice.',
+    id: 1,
+    title: 'State Champion - Technical Paper',
+    organization: 'MSBTE',
+    date: '2024',
+    category: 'Achievements',
+    image: '/achievements/cert_1.png',
+    link: '#',
   },
   {
-    year: '2023',
-    title: 'Deep Dive Into Frontend',
-    detail: 'Focused on JavaScript, React, and UI craftsmanship while shipping increasingly polished projects.',
+    id: 2,
+    title: 'Top Finalist - State Hackathon',
+    organization: 'Gasmitra Solutions',
+    date: '2023',
+    category: 'Achievements',
+    image: '/achievements/hackathon.png',
+    link: '#',
   },
   {
-    year: '2024',
-    title: 'Full-Stack and Product Thinking',
-    detail: 'Expanded into backend services, databases, and AI-driven workflows to build complete digital products.',
-  },
-  {
-    year: '2025',
-    title: 'Shipped Real-World Platforms',
-    detail: 'Built ApplyIQ, StudyBuddy, and CampusCare with a focus on storytelling, usability, and smooth interactions.',
+    id: 3,
+    title: 'Machine Learning Basics',
+    organization: 'Coursera',
+    date: '2023',
+    category: 'Certificates',
+    image: '/achievements/cert_2.png',
+    link: '#',
   },
 ];
 
-export const achievements = [
-  { label: 'Projects Built', value: 12, suffix: '+' },
-  { label: 'Technologies Used', value: 15, suffix: '+' },
-  { label: 'UI Prototypes Crafted', value: 35, suffix: '+' },
-  { label: 'Hackathon / Team Builds', value: 8, suffix: '+' },
-];
 
-export const testimonials = [
-  {
-    name: 'Rahul Sharma',
-    role: 'Senior Frontend Engineer',
-    quote:
-      'Vaidik blends design sensitivity with engineering discipline. His interfaces feel intentional and production-ready.',
-  },
-  {
-    name: 'Priya Mehta',
-    role: 'Product Manager',
-    quote:
-      'He listens deeply, iterates fast, and consistently improves both UI quality and user flow clarity.',
-  },
-  {
-    name: 'Arjun Nair',
-    role: 'Hackathon Teammate',
-    quote:
-      'From concept to polished frontend, Vaidik can deliver fast without sacrificing smoothness or responsiveness.',
-  },
-];

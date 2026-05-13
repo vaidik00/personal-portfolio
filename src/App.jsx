@@ -15,7 +15,6 @@ import SkillsSection from './components/sections/SkillsSection';
 import ProjectsSection from './components/sections/ProjectsSection';
 import TimelineSection from './components/sections/TimelineSection';
 import AchievementsSection from './components/sections/AchievementsSection';
-import TestimonialsSection from './components/sections/TestimonialsSection';
 import ContactSection from './components/sections/ContactSection';
 import Footer from './components/layout/Footer';
 
@@ -95,7 +94,6 @@ export default function App() {
         <ProjectsSection />
         <TimelineSection />
         <AchievementsSection />
-        <TestimonialsSection />
         <ContactSection />
       </main>
 
