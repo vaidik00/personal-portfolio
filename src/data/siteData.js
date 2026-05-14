@@ -65,6 +65,7 @@ export const skillGroups = [
     items: [
       { name: 'FastAPI', iconKey: 'fastapi' },
       { name: 'Node.js', iconKey: 'nodejs' },
+      { name: 'PHP', iconKey: 'php' },
       { name: 'REST APIs', iconKey: 'api' },
     ],
   },
@@ -140,42 +141,42 @@ export const projects = [
 ];
 
 export const journeyTimeline = [
-    {
-      year: 'Sep 2022 – May 2025',
-      title: 'Diploma in Computer Engineering',
-      detail:
-        'St. John College of Engineering and Management, Palghar, Maharashtra | Graduated with First Class Distinction, securing 89.09%. Built a strong foundation in software development, problem-solving, and emerging technologies while actively participating in technical competitions, research presentations, and hackathons.',
-    },
-    {
-      year: 'Jun 2024 – Jul 2024',
-      title: 'Android Development Intern — Accunity Services LLP',
-      detail:
-        'Worked remotely as an Android Development Intern, building scalable mobile applications using Kotlin. Implemented REST API integrations, local data storage, UI/UX improvements, debugging, and state management to deliver responsive and production-ready applications.',
-    },
-    {
-      year: '20 Feb 2025',
-      title: 'State-Level Paper Presentation Champion',
-      detail:
-        'Won first place at Bhausaheb Vartak Polytechnic College for presenting an IEEE-format research paper on the “Pros, Cons, and Future of AI & Large Language Models (LLMs).” The presentation focused on the real-world impact, opportunities, and ethical challenges of modern AI systems.',
-    },
-    {
-      year: '21 Mar 2025',
-      title: 'Winner — Presentania 2025',
-      detail:
-        'Secured another state-level victory at “Presentania” hosted by St. John College of Engineering and Management using the same IEEE research paper on AI and LLMs. Recognized for technical depth, presentation clarity, and innovative insights into the future of artificial intelligence.',
-    },
-    {
-      year: 'Aug 2025 – Present',
-      title: 'B.Tech in Information Technology',
-      detail:
-        'KJ Somaiya Institute of Technology, Mumbai, Maharashtra | Currently pursuing a Bachelor’s degree in Information Technology with a strong focus on AI-powered applications, full-stack development, and intelligent systems engineering.',
-    },
-    {
-      year: '28 Mar 2026',
-      title: 'Top 8 Finalist — Build-It ON Hackathon',
-      detail:
-        'Participated in “Build-It ON: AI for Social Impact & Sustainability” hosted by Thakur College of Engineering and Technology (TCET). Worked on solving the problem of gas shortages during crisis situations through an AI-driven smart distribution system. Out of 200+ participating teams, only 21 teams were shortlisted, and our team secured a Top 8 finalist position.',
-    },
+  {
+    year: 'Sep 2022 – May 2025',
+    title: 'Diploma in Computer Engineering',
+    detail:
+      'Completed Diploma at St. John College with First Class Distinction (89.09%) and active participation in tech events.',
+  },
+  {
+    year: 'Jun 2024 – Jul 2024',
+    title: 'Android Development Intern — Accunity Services LLP',
+    detail:
+      'Developed Android applications using Kotlin with API integration, local storage, and UI improvements.',
+  },
+  {
+    year: '20 Feb 2025',
+    title: 'State-Level Paper Presentation Champion',
+    detail:
+      'Won 1st place for presenting an IEEE research paper on AI and Large Language Models (LLMs).',
+  },
+  {
+    year: '21 Mar 2025',
+    title: 'Winner — Presentania 2025',
+    detail:
+      'Secured another state-level win for presenting the AI & LLM IEEE research paper.',
+  },
+  {
+    year: 'Aug 2025 – Present',
+    title: 'B.Tech in Information Technology',
+    detail:
+      'Currently pursuing B.Tech at KJ Somaiya Institute of Technology with a focus on AI and full-stack development.',
+  },
+  {
+    year: '28 Mar 2026',
+    title: 'Top 8 Finalist — Build-It ON Hackathon',
+    detail:
+      'Reached Top 8 among 200+ teams with an AI-driven smart gas distribution solution.',
+  },
 ];
 
 export const achievementsBoard = [

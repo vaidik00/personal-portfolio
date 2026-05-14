@@ -1,22 +1,23 @@
-import { useEffect, useRef, useState } from 'react';
+import { lazy, Suspense, useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import useTheme from './hooks/useTheme';
 import useLenisScroll from './hooks/useLenisScroll';
 import usePrefersReducedMotion from './hooks/usePrefersReducedMotion';
 import Preloader from './components/ui/Preloader';
-import { SmoothCursor } from './components/ui/SmoothCursor';
-import ParticlesCanvas from './components/ui/ParticlesCanvas';
 import ScrollProgress from './components/ui/ScrollProgress';
 import Navbar from './components/layout/Navbar';
-import HeroSection from './components/sections/HeroSection';
-import AboutSection from './components/sections/AboutSection';
-import SkillsSection from './components/sections/SkillsSection';
-import ProjectsSection from './components/sections/ProjectsSection';
-import TimelineSection from './components/sections/TimelineSection';
-import AchievementsSection from './components/sections/AchievementsSection';
-import ContactSection from './components/sections/ContactSection';
-import Footer from './components/layout/Footer';
+
+/* Heavy components — loaded lazily after preloader exits */
+const SmoothCursor = lazy(() => import('./components/ui/SmoothCursor').then(m => ({ default: m.SmoothCursor })));
+const HeroSection = lazy(() => import('./components/sections/HeroSection'));
+const AboutSection = lazy(() => import('./components/sections/AboutSection'));
+const SkillsSection = lazy(() => import('./components/sections/SkillsSection'));
+const ProjectsSection = lazy(() => import('./components/sections/ProjectsSection'));
+const TimelineSection = lazy(() => import('./components/sections/TimelineSection'));
+const AchievementsSection = lazy(() => import('./components/sections/AchievementsSection'));
+const ContactSection = lazy(() => import('./components/sections/ContactSection'));
+const Footer = lazy(() => import('./components/layout/Footer'));
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -77,27 +78,31 @@ export default function App() {
         Skip to content
       </a>
 
-      {!prefersReducedMotion && (
-        <SmoothCursor />
-      )}
-      <ParticlesCanvas isDark={isDark} reducedMotion={prefersReducedMotion} />
+      {/* Cursor + Particles: mount only after preloader exits so they don't
+          compete with the preloader animation for GPU/CPU budget */}
+      <Suspense fallback={null}>
+        {isLoaded && !prefersReducedMotion && <SmoothCursor />}
+      </Suspense>
+
       <ScrollProgress />
 
       {!isLoaded && <Preloader onComplete={() => setIsLoaded(true)} />}
 
       <Navbar isDark={isDark} onToggleTheme={toggleTheme} onNavigate={handleNavigate} />
 
-      <main id="main-content" className="relative z-10 overflow-x-clip">
-        <HeroSection onNavigate={handleNavigate} />
-        <AboutSection />
-        <SkillsSection />
-        <ProjectsSection />
-        <TimelineSection />
-        <AchievementsSection />
-        <ContactSection />
-      </main>
+      <Suspense fallback={null}>
+        <main id="main-content" className="relative z-10 overflow-x-clip">
+          <HeroSection onNavigate={handleNavigate} />
+          <AboutSection />
+          <SkillsSection />
+          <ProjectsSection />
+          <TimelineSection />
+          <AchievementsSection />
+          <ContactSection />
+        </main>
 
-      <Footer onNavigate={handleNavigate} />
+        <Footer onNavigate={handleNavigate} />
+      </Suspense>
     </div>
   );
 }
