@@ -12,18 +12,17 @@ export const personalInfo = {
   tagline: 'Building Modern Web Experiences',
   role: 'B.Tech IT Student | Frontend Engineering Enthusiast',
   location: 'Mumbai, India',
-  email: 'vaidikpatel@example.com',
+  email: 'vaidikdholu2@gmail.com',
   college: 'K.J. Somaiya Institute of Technology (KJSIT), Mumbai',
   degree: 'B.Tech - Information Technology',
   availability: 'Open to internships and frontend collaborations',
   bioShort:
-    'AI-focused Information Technology student at KJ Somaiya Institute of Technology.',
+    'AI-assisted Information Technology student at KJ Somaiya Institute of Technology.',
 
   socialLinks: [
     { label: 'GitHub', href: 'https://github.com/vaidik00', key: 'github' },
-    { label: 'LinkedIn', href: 'https://linkedin.com/in/vaidikpatel', key: 'linkedin' },
-    { label: 'X', href: 'https://x.com/vaidikpatel', key: 'x' },
-    { label: 'Email', href: 'mailto:vaidikpatel@example.com', key: 'mail' },
+    { label: 'LinkedIn', href: 'https://www.linkedin.com/in/vaidik-patel-524979388?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app', key: 'linkedin' },
+    { label: 'Email', href: 'mailto:vaidikdholu2@gmail.com', key: 'mail' },
   ],
 };
 
@@ -109,7 +108,7 @@ export const projects = [
     name: 'ApplyIQ',
     subtitle: 'AI Resume Intelligence Platform',
     description:
-      'An AI-powered resume analyzer with resume roasting, skill enhancement suggestions, and interview tracking in a responsive productivity dashboard.',
+      'An AI-assisted resume analyzer with resume roasting, skill enhancement suggestions, and interview tracking in a responsive productivity dashboard.',
     features: ['AI integration', 'Resume analysis', 'Skill enhancement', 'Interview tracking', 'Responsive dashboard'],
     techStack: ['React', 'Node.js', 'Supabase', 'Tailwind CSS', 'OpenAI API'],
     githubUrl: 'https://github.com/vaidik00/applyiq',
