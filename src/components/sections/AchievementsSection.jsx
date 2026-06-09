@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import SectionTitle from '../ui/SectionTitle';
 import { achievementsBoard } from '../../data/siteData';
@@ -10,9 +10,32 @@ export default function AchievementsSection() {
   const [activeTab, setActiveTab] = useState('All');
   const [selectedImage, setSelectedImage] = useState(null);
 
+  // Close modal and navigate back in history
+  const closeImage = useCallback(() => {
+    setSelectedImage(null);
+  }, []);
+
+  // Open modal: push a dummy history entry so back button can pop it
+  const openImage = useCallback((image) => {
+    setSelectedImage(image);
+    window.history.pushState({ lightbox: true }, '');
+  }, []);
+
+  // Listen for the browser/mobile back button
+  useEffect(() => {
+    const handlePopState = (e) => {
+      if (selectedImage) {
+        setSelectedImage(null);
+      }
+    };
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, [selectedImage]);
+
   const filteredItems = achievementsBoard.filter(
     (item) => activeTab === 'All' || item.category === activeTab
   );
+
 
   return (
     <section id="achievements" className="section-shell px-4 py-24 md:px-8">
@@ -61,7 +84,7 @@ export default function AchievementsSection() {
                 exit={{ opacity: 0, scale: 0.9, y: 20 }}
                 transition={{ duration: 0.4, type: "spring", bounce: 0.2 }}
                 className="group relative flex cursor-pointer flex-col overflow-hidden rounded-3xl glass-panel border border-black/10 hover:border-[var(--color-electric)]/50 hover:shadow-[0_0_30px_rgba(123,101,255,0.2)] dark:border-white/10 transition-all duration-500 will-change-transform"
-                onClick={() => setSelectedImage(item.image)}
+                onClick={() => openImage(item.image)}
                 data-cursor="interactive"
                 whileHover={{ y: -5 }}
               >
@@ -109,7 +132,7 @@ export default function AchievementsSection() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            onClick={() => setSelectedImage(null)}
+            onClick={() => closeImage()}
             className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 p-4 backdrop-blur-md cursor-zoom-out"
           >
             <motion.img
@@ -124,7 +147,7 @@ export default function AchievementsSection() {
             />
             
             <button
-              onClick={() => setSelectedImage(null)}
+              onClick={() => closeImage()}
               data-cursor="interactive"
               className="absolute top-6 right-6 rounded-full bg-white/10 p-3 text-white backdrop-blur-md transition-all hover:bg-[var(--color-electric)] hover:shadow-[0_0_15px_rgba(123,101,255,0.5)] border border-white/10"
             >
