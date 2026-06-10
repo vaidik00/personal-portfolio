@@ -88,9 +88,28 @@ function ProjectCard({ project, index }) {
 
         {/* Content */}
         <div className="p-6" style={{ position: 'relative', zIndex: 2 }}>
-          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[var(--color-soft-blue)]">
-            {project.subtitle}
-          </p>
+          <div className="flex items-center justify-between">
+            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[var(--color-soft-blue)]">
+              {project.subtitle}
+            </p>
+            {project.tag === 'Freelance' && (
+              <span
+                style={{
+                  fontSize: '0.65rem',
+                  fontWeight: 700,
+                  letterSpacing: '0.1em',
+                  textTransform: 'uppercase',
+                  color: '#c9972d',
+                  border: '1px solid rgba(201,151,45,0.45)',
+                  borderRadius: '999px',
+                  padding: '2px 8px',
+                  background: 'rgba(201,151,45,0.08)',
+                }}
+              >
+                Freelance
+              </span>
+            )}
+          </div>
           <h3 className="mt-2 font-display text-2xl font-semibold tracking-tight text-black dark:text-white">
             {project.name}
           </h3>
@@ -117,18 +136,22 @@ function ProjectCard({ project, index }) {
 
           {/* Action buttons — using shadcn Button */}
           <div className="mt-5 flex flex-wrap gap-2.5">
-            <Button asChild size="sm" variant="outline">
-              <a href={project.githubUrl} target="_blank" rel="noreferrer">
-                <FiGithub size={13} />
-                GitHub
-              </a>
-            </Button>
-            <Button asChild size="sm" variant="ghost">
-              <a href={project.liveUrl} target="_blank" rel="noreferrer">
-                <FiArrowUpRight size={13} />
-                Live
-              </a>
-            </Button>
+            {project.githubUrl && project.githubUrl !== '#' && (
+              <Button asChild size="sm" variant="outline">
+                <a href={project.githubUrl} target="_blank" rel="noreferrer">
+                  <FiGithub size={13} />
+                  GitHub
+                </a>
+              </Button>
+            )}
+            {project.liveUrl && project.liveUrl !== '#' && (
+              <Button asChild size="sm" variant="ghost">
+                <a href={project.liveUrl} target="_blank" rel="noreferrer">
+                  <FiArrowUpRight size={13} />
+                  Live Site
+                </a>
+              </Button>
+            )}
           </div>
         </div>
       </motion.article>

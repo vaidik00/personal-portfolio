@@ -114,6 +114,7 @@ export const projects = [
     githubUrl: 'https://github.com/vaidik00/applyiq',
     liveUrl: '#',
     accent: 'linear-gradient(120deg, #6f5cff, #7ad0ff)',
+    tag: 'Personal',
   },
   {
     name: 'StudyBuddy',
@@ -125,6 +126,7 @@ export const projects = [
     githubUrl: 'https://github.com/vaidik00/studybuddy',
     liveUrl: '#',
     accent: 'linear-gradient(120deg, #5dd1ff, #5ef1d0)',
+    tag: 'Personal',
   },
   {
     name: 'CampusCare',
@@ -136,6 +138,21 @@ export const projects = [
     githubUrl: 'https://github.com/vaidik00/campuscare',
     liveUrl: '#',
     accent: 'linear-gradient(120deg, #7d78ff, #a29dff)',
+    tag: 'Personal',
+  },
+  {
+    name: 'Vaidik Enterprises',
+    subtitle: 'Freelance — Corporate Website',
+    description:
+      'Full corporate website for a premium civil construction firm operating across the Mumbai Metropolitan Region. Features a multi-page SPA with a filterable project portfolio, 8-step process showcase, services breakdown, and WhatsApp/call CTAs — all tailored to convert high-value construction leads.',
+    features: ['Multi-page SPA', 'Filterable project portfolio', 'Services showcase', 'Process timeline', 'WhatsApp & Call CTAs'],
+    techStack: ['React', 'React Router', 'Tailwind CSS', 'Vercel'],
+    githubUrl: '#',
+    liveUrl: 'https://vaidik-enterprises.vercel.app/',
+    accent: 'linear-gradient(120deg, #1a3a5c, #c9972d)',
+    tag: 'Freelance',
+    client: 'Vaidik Enterprises (Narotam M. Dholu)',
+    domain: 'Civil Construction & Real Estate',
   },
 ];
 
