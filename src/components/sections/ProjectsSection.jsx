@@ -1,161 +1,95 @@
-import { useRef } from 'react';
-import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { FiArrowUpRight, FiGithub } from 'react-icons/fi';
 import SectionTitle from '../ui/SectionTitle';
 import { projects } from '../../data/siteData';
 import { staggerParent, riseIn } from '../../utils/motion';
-import { Badge } from '../ui/badge';
-import { Button } from '../ui/button';
 
-/** 3D-tilt project card using Framer Motion spring physics */
+/** Testimonial grid-style project card with image background and hover effects */
 function ProjectCard({ project, index }) {
-  const cardRef = useRef(null);
-
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-
-  const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [7, -7]), {
-    stiffness: 400, damping: 35,
-  });
-  const rotateY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-7, 7]), {
-    stiffness: 400, damping: 35,
-  });
-  const glowX = useTransform(mouseX, [-0.5, 0.5], ['0%', '100%']);
-  const glowY = useTransform(mouseY, [-0.5, 0.5], ['0%', '100%']);
-
-  const handleMouseMove = (e) => {
-    const rect = cardRef.current?.getBoundingClientRect();
-    if (!rect) return;
-    mouseX.set((e.clientX - rect.left - rect.width / 2) / (rect.width / 2));
-    mouseY.set((e.clientY - rect.top - rect.height / 2) / (rect.height / 2));
-  };
-
-  const handleMouseLeave = () => {
-    mouseX.set(0);
-    mouseY.set(0);
-  };
-
   return (
-    <motion.div
-      ref={cardRef}
+    <motion.article
       variants={riseIn}
       transition={{ delay: index * 0.08 }}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      style={{
-        rotateX,
-        rotateY,
-        transformStyle: 'preserve-3d',
-        perspective: 1000,
-      }}
+      className="group relative flex flex-col justify-end overflow-hidden rounded-3xl bg-black/5 dark:bg-white/5"
+      style={{ minHeight: '420px' }}
       data-cursor="interactive"
     >
-      <motion.article
-        className="project-card group h-full"
-        style={{ transformStyle: 'preserve-3d' }}
-      >
-        {/* Gradient follow-cursor glow */}
-        <motion.div
-          aria-hidden="true"
-          style={{
-            position: 'absolute',
-            inset: 0,
-            borderRadius: 'inherit',
-            opacity: 0,
-            background: `radial-gradient(200px circle at var(--gx, 50%) var(--gy, 50%), ${project.accent.includes('7b65') ? 'rgba(123,101,255,0.12)' : 'rgba(120,215,255,0.1)'}, transparent)`,
-            pointerEvents: 'none',
-            zIndex: 1,
-            transition: 'opacity 0.3s',
-          }}
-          className="group-hover:opacity-100"
+      {/* Background Image with Hover Scale */}
+      <div className="absolute inset-0 z-0 overflow-hidden bg-black">
+        <img 
+          src={project.image} 
+          alt={project.name}
+          className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 opacity-80 group-hover:opacity-100"
+          onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop'; }}
         />
+        {/* Dark Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-black/10 transition-opacity duration-500 group-hover:opacity-90 pointer-events-none" />
+      </div>
 
-        {/* Mockup header */}
-        <div
-          className="project-mockup"
-          style={{ backgroundImage: project.accent }}
-          aria-hidden="true"
-        >
-          <div className="project-mockup-inner" style={{ transform: 'translateZ(20px)' }}>
-            <div className="project-window-row">
-              <span /> <span /> <span />
-            </div>
-            <div className="project-lines">
-              <div /> <div /> <div />
-            </div>
-          </div>
-        </div>
-
-        {/* Content */}
-        <div className="p-6" style={{ position: 'relative', zIndex: 2 }}>
-          <div className="flex items-center justify-between">
-            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[var(--color-soft-blue)]">
+      {/* Content */}
+      <div className="relative z-10 p-6 flex flex-col gap-3 h-full justify-end text-white">
+        <div>
+          <div className="flex items-center justify-between mb-2">
+            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-soft-blue)] drop-shadow-md">
               {project.subtitle}
-            </p>
+            </span>
             {project.tag === 'Freelance' && (
-              <span
-                style={{
-                  fontSize: '0.65rem',
-                  fontWeight: 700,
-                  letterSpacing: '0.1em',
-                  textTransform: 'uppercase',
-                  color: '#c9972d',
-                  border: '1px solid rgba(201,151,45,0.45)',
-                  borderRadius: '999px',
-                  padding: '2px 8px',
-                  background: 'rgba(201,151,45,0.08)',
-                }}
-              >
+              <span className="text-[0.65rem] font-bold tracking-widest uppercase text-[#c9972d] border border-[#c9972d]/50 bg-[#c9972d]/10 px-2 py-0.5 rounded-full backdrop-blur-sm">
                 Freelance
               </span>
             )}
           </div>
-          <h3 className="mt-2 font-display text-2xl font-semibold tracking-tight text-black dark:text-white">
+          
+          <h3 className="font-display text-2xl font-semibold tracking-tight text-white drop-shadow-sm">
             {project.name}
           </h3>
-          <p className="mt-2 text-sm leading-relaxed text-black/65 dark:text-white/65">
+          
+          <p className="mt-2 text-sm leading-relaxed text-white/80 line-clamp-3 group-hover:line-clamp-none transition-all duration-300">
             {project.description}
           </p>
-
-          {/* Features */}
-          <ul className="mt-4 space-y-1 text-xs text-black/55 dark:text-white/55">
-            {project.features.slice(0, 3).map((f) => (
-              <li key={f} className="flex items-center gap-1.5">
-                <span style={{ color: 'var(--color-electric)', fontSize: '0.6rem' }}>◆</span>
-                {f}
-              </li>
-            ))}
-          </ul>
-
-          {/* Tech badges — using shadcn Badge */}
-          <div className="mt-4 flex flex-wrap gap-1.5">
-            {project.techStack.map((tech) => (
-              <Badge key={tech} variant="secondary">{tech}</Badge>
-            ))}
-          </div>
-
-          {/* Action buttons — using shadcn Button */}
-          <div className="mt-5 flex flex-wrap gap-2.5">
-            {project.githubUrl && project.githubUrl !== '#' && (
-              <Button asChild size="sm" variant="outline">
-                <a href={project.githubUrl} target="_blank" rel="noreferrer">
-                  <FiGithub size={13} />
-                  GitHub
-                </a>
-              </Button>
-            )}
-            {project.liveUrl && project.liveUrl !== '#' && (
-              <Button asChild size="sm" variant="ghost">
-                <a href={project.liveUrl} target="_blank" rel="noreferrer">
-                  <FiArrowUpRight size={13} />
-                  Live Site
-                </a>
-              </Button>
-            )}
-          </div>
         </div>
-      </motion.article>
-    </motion.div>
+
+        {/* Tech badges */}
+        <div className="flex flex-wrap gap-1.5 mt-2">
+          {project.techStack.slice(0, 4).map((tech) => (
+            <span key={tech} className="text-xs font-medium px-2 py-1 rounded-md bg-white/10 backdrop-blur-md border border-white/10 text-white/90">
+              {tech}
+            </span>
+          ))}
+          {project.techStack.length > 4 && (
+            <span className="text-xs font-medium px-2 py-1 rounded-md bg-white/5 border border-white/5 text-white/70">
+              +{project.techStack.length - 4}
+            </span>
+          )}
+        </div>
+
+        {/* Action buttons */}
+        <div className="mt-4 flex flex-wrap gap-3">
+          {project.githubUrl && project.githubUrl !== '#' && (
+            <a 
+              href={project.githubUrl} 
+              target="_blank" 
+              rel="noreferrer"
+              className="flex items-center gap-1.5 text-sm font-medium text-white hover:text-white transition-colors bg-white/10 hover:bg-white/20 px-4 py-2 rounded-xl backdrop-blur-md border border-white/10"
+            >
+              <FiGithub size={15} />
+              GitHub
+            </a>
+          )}
+          {project.liveUrl && project.liveUrl !== '#' && (
+            <a 
+              href={project.liveUrl} 
+              target="_blank" 
+              rel="noreferrer"
+              className="flex items-center gap-1.5 text-sm font-medium text-[var(--color-electric)] hover:text-white transition-colors bg-[var(--color-electric)]/10 hover:bg-[var(--color-electric)]/40 px-4 py-2 rounded-xl backdrop-blur-md border border-[var(--color-electric)]/30 shadow-[0_0_15px_rgba(123,101,255,0.2)]"
+            >
+              <FiArrowUpRight size={15} />
+              Live Site
+            </a>
+          )}
+        </div>
+      </div>
+    </motion.article>
   );
 }
 

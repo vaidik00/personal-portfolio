@@ -114,6 +114,7 @@ export const projects = [
     githubUrl: 'https://github.com/vaidik00/apply-iq.git',
     liveUrl: 'https://apply-iq-nu.vercel.app/',
     accent: 'linear-gradient(120deg, #6f5cff, #7ad0ff)',
+    image: '/projects/applyiq.jpg',
     tag: 'Personal',
   },
   {
@@ -126,6 +127,7 @@ export const projects = [
     githubUrl: 'https://github.com/vaidik00/studybuddy',
     liveUrl: '#',
     accent: 'linear-gradient(120deg, #5dd1ff, #5ef1d0)',
+    image: '/projects/studybuddy.jpg',
     tag: 'Personal',
   },
   {
@@ -138,6 +140,7 @@ export const projects = [
     githubUrl: 'https://github.com/vaidik00/campuscare',
     liveUrl: '#',
     accent: 'linear-gradient(120deg, #7d78ff, #a29dff)',
+    image: '/projects/campuscare.jpg',
     tag: 'Personal',
   },
   {
@@ -150,6 +153,7 @@ export const projects = [
     githubUrl: '#',
     liveUrl: 'https://vaidik-enterprises.vercel.app/',
     accent: 'linear-gradient(120deg, #1a3a5c, #c9972d)',
+    image: '/projects/vaidik-enterprises.jpg',
     tag: 'Freelance',
     client: 'Vaidik Enterprises (Narotam M. Dholu)',
     domain: 'Civil Construction & Real Estate',
