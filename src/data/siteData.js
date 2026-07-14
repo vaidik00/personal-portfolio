@@ -114,7 +114,7 @@ export const projects = [
     githubUrl: 'https://github.com/vaidik00/apply-iq.git',
     liveUrl: 'https://apply-iq-nu.vercel.app/',
     accent: 'linear-gradient(120deg, #6f5cff, #7ad0ff)',
-    image: '/projects/applyiq.jpg',
+    image: '/projects/apply-iq.png',
     tag: 'Personal',
   },
   {
